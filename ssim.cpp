@@ -85,16 +85,6 @@ int main(int argc, char *argv[])
     string refHeader = "Reference: " + refFilename;
     string testHeader = "Test: " + testFilename;
 
-
-    const char* WIN_RF = refHeader.c_str();
-    const char* WIN_UT = testHeader.c_str();
-
-    // Windows
-    namedWindow(WIN_RF, CV_WINDOW_AUTOSIZE);
-    namedWindow(WIN_UT, CV_WINDOW_AUTOSIZE);
-    cvMoveWindow(WIN_RF, 400       , 0);         //750,  2 (bernat =0)
-    cvMoveWindow(WIN_UT, refS.width, 0);         //1500, 2
-
     cout << "Reference frame resolution: Width=" << refS.width << "  Height=" << refS.height
          << " of nr#: " << captRefrnc.get(CV_CAP_PROP_FRAME_COUNT) << endl;
 
@@ -156,9 +146,6 @@ int main(int argc, char *argv[])
             cout << endl;
 
         }
-        ////////////////////////////////// Show Image /////////////////////////////////////////////
-        imshow(WIN_RF, frameReference);
-        imshow(WIN_UT, frameUnderTest);
 
         c = (char)cvWaitKey(delay);
         if (c == 27) break;
